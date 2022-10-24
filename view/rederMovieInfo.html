@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieDay</title>
+    <script src="https://kit.fontawesome.com/5353fadcdc.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./../styles/movie.css">
+</head>
+<body>
+    <header>
+        <a href="./../index.html" class="logo">
+            <div class="logo_bg"></div>
+            <div class="logo_content">
+                <i class="fa-solid fa-film"></i>
+                MovieDay
+            </div>
+        </a>
+        <nav>
+            <a href="#pop">Populares</a>
+            <a href="#cartelera">Cartelera</a>
+        </nav>
+    </header>
+    <main>
+        <div class="movie">
+            <div class="movie_img">
+                <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xiB0hsxMpgxpJehYxUDhiUkg2w.jpg" alt="juego de tronos">
+            </div>
+            <div class="movie_info column">
+                <div class="movie_info_basic">
+                    <h1>Titulo de la pelicula</h1>
+                    <div class="info_basic_resum row">
+                        <p class="like-container">2020/03/11</p>
+                        <p class="like-container">Accion, Aventura, Ficcion</p>
+                        <p class="like-container">1h 50m</p>
+                    </div>
+                </div>
+                <div class="movie_info_fromPage row">
+                    <div class="fromPage_img">
+                        <img class="streamingLogo" src="https://www.themoviedb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" alt="Netflix" />
+                    </div>
+                    <div class="fromPage_porce like-container row">
+                        <i class="like fa-regular fa-thumbs-up"></i>
+                        <div class="row">87<span class="porcen"><p>&percnt;</p></span></div>
+                    </div>
+                </div>
+                <div class="movie_sipnosis">
+                    <h2>Sipnosis</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec lacinia justo.
+                        Praesent eleifend lectus dictum, sagittis nunc quis, imperdiet neque. Mauris 
+                        tincidunt rhoncus libero, nec tempus tortor bibendum a. Aliquam varius sed tellus 
+                        ac mollis. Curabitur tincidunt sem et ultrices eleifend. Aenean euismod erat leo, 
+                        et efficitur justo semper non. Duis vulputate sem ac pharetra ultrices. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <section id="similares" class="scroller_container">
+            <div class="scroller_top">
+                <h2>Similares</h2>
+                <!-- aqui puede ir un filter -->
+            </div>
+            <div class="scroller">
+                
+                <div class="scroller_card">
+                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xiB0hsxMpgxpJehYxUDhiUkg2w.jpg" alt="juego de tronos">
+                    <div class="info">
+                        <h3>Juego de Tronos</h3>
+                        <div class="row ">
+                            <img class="streamingLogo" src="https://www.themoviedb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" alt="Netflix" />
+                            <div class="row like-container">
+                                <i class="like fa-regular fa-thumbs-up"></i>
+                                <div class="row">87<span class="porcen"><p>&percnt;</p></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            Aqui va mi firma
+        </div>
+    </footer>
+</body>
+</html>

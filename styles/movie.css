@@ -1,0 +1,35 @@
+@import url(./style.css);
+.movie{
+    display:grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: var(--secundary-color);
+}
+
+.movie_img{
+    min-width: 350px;
+}
+.movie_info{
+    gap: 20px;
+    max-width: 900px;
+    padding-top: 40px;
+}
+.movie_info h1{
+    font-size: var(--big);
+}
+.movie_info_basic {
+    gap: 10px;
+}
+.info_basic_resum{
+    gap: 5px;
+}
+.movie_info_fromPage{
+    align-items: center;
+    gap: 10px;
+}
+.movie_sipnosis h2{
+    border-bottom: solid var(--p-c-linght);
+    margin-bottom: 5px;
+}

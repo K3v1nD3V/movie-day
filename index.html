@@ -38,47 +38,66 @@
             </form>
         </section>
         
-        <section id="pop" class="scroller_container">
+        <section  class="scroller_container">
+            <div class="scroller_top">
+                <h2>Tendencia</h2>
+                <!-- aqui puede ir un filter -->
+            </div>
+            <div id="trending" class="scroller">
+                <!-- <div class="scroller_card">
+                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9BXYLjXtSipBp2GfAlsri4i8hPC.jpg" alt="juego de tronos">
+                    <div class="info">
+                        <h3>Juego de Tronos</h3>
+                        <div class="row ">
+                            <img class="streamingLogo" src="https://www.themoviedb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" alt="Netflix" />
+                            <div class="like-container row">
+                                <i class="like fa-regular fa-thumbs-up"></i>
+                                <div class="row">
+                                    87
+                                    <span class="porcen">
+                                        <p>&percnt;</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <section  class="scroller_container">
             <div class="scroller_top">
                 <h2>Populares</h2>
                 <!-- aqui puede ir un filter -->
             </div>
-            <div class="scroller">
-                
-                <div class="scroller_card">
-                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xiB0hsxMpgxpJehYxUDhiUkg2w.jpg" alt="juego de tronos">
+            <div id="popular" class="scroller">
+                <!-- <div class="scroller_card">
+                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9BXYLjXtSipBp2GfAlsri4i8hPC.jpg" alt="juego de tronos">
                     <div class="info">
                         <h3>Juego de Tronos</h3>
                         <div class="row ">
                             <img class="streamingLogo" src="https://www.themoviedb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" alt="Netflix" />
-                            <i class="like fa-regular fa-thumbs-up"></i>
-                            <div class="like-container row">87<span class="porcen"><p>&percnt;</p></span></div>
+                            <div class="like-container row">
+                                <i class="like fa-regular fa-thumbs-up"></i>
+                                <div class="row">
+                                    87
+                                    <span class="porcen">
+                                        <p>&percnt;</p>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            
+                </div> -->
             </div>
         </section>
-        <section id="cartelera" class="scroller_container">
+
+        <section class="scroller_container">
             <div class="scroller_top">
                 <h2>Cartelera</h2>
                 <!-- aqui puede ir un filter -->
             </div>
-            <div class="scroller">
-                
-                <div class="scroller_card">
-                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xiB0hsxMpgxpJehYxUDhiUkg2w.jpg" alt="juego de tronos">
-                    <div class="info">
-                        <h3>Juego de Tronos</h3>
-                        <div class="row ">
-                            <img class="streamingLogo" src="https://www.themoviedb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" alt="Netflix" />
-                            <i class="like fa-regular fa-thumbs-up"></i>
-                            <div class="like-container row">87<span class="porcen"><p>&percnt;</p></span></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <div id="cartelera" class="scroller"></div>
         </section>
 
         <footer>
@@ -87,6 +106,7 @@
             </div>
         </footer>
     </main>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./src/app.js"></script>
 </body>
 </html>

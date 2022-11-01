@@ -1,7 +1,3 @@
-const popularScroller = document.querySelector('#popular');
-const carteleraScroller = document.querySelector('#cartelera')
-const trendingScroller = document.querySelector('#trending')
-
 const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
     headers: {
@@ -54,20 +50,25 @@ function createMovieCard(movie) {
 
     row_div.className = 'row';
     
-    getData(`/movie/${movie.id}/watch/providers`)
-        .then(mv => {
-            console.log(mv);
-                // streaming_img
-        })
+    // getData(`/movie/${movie.id}/watch/providers`)
+    //     .then(mv => {
+    //         // console.log(mv);
+    //             // streaming_img.src = 
+    //     })
+
     like_container.classList.add('like-container','row')
 
     like_icon.classList.add('like','fa-regular', 'fa-thumbs-up')
 
     porcen_container.className = 'row';
+    
     porcen_number.textContent = '00';
+    
     porcen_icon_container.className = 'porcen';
+    
     porcen_icon.textContent = "%"
 
+    
     porcen_icon_container.appendChild(porcen_icon)
     
     porcen_container.appendChild(porcen_number)
@@ -95,14 +96,12 @@ function render(movies, scroller) {
    });
 }
 
-
-(async function(){
-    const popular = await getData(`${endpoints.popular}`)
-    const cartelera = await getData(`${endpoints.cartelera}`)
-    const trending = await getData(`${endpoints.trending}`)
+country_select.addEventListener('change', () => {
     
-    render(trending, trendingScroller)
-    render(popular, popularScroller)
-    render(cartelera, carteleraScroller)
-    
-})()
+    const codigo_ISO = country_select.options[country_select.selectedIndex].value
+    getData(`${endpoints.cartelera}?region=${codigo_ISO}`)
+        .then((data) => {
+            carteleraScroller.innerHTML = ''
+            render(data, carteleraScroller)
+        })
+})

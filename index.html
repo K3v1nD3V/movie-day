@@ -5,11 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MovieDay</title>
-    <script src="https://kit.fontawesome.com/5353fadcdc.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://kit.fontawesome.com/c4a27b7093.js" crossorigin="anonymous"></script>    <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
     <header>
@@ -93,9 +91,20 @@
         </section>
 
         <section class="scroller_container">
-            <div class="scroller_top">
+            <div class="scroller_top row">
                 <h2>Cartelera</h2>
-                <!-- aqui puede ir un filter -->
+                <div class="select_container">
+                    <select id="country_select" class="select">
+                        <option value="AR">Argentina</option>
+                        <option value="AU">Australia</option>
+                        <option value="BR">Brasil</option>
+                        <option value="CO">Colombia</option>
+                        <option value="CL">Chile</option>
+                        <option value="EC">Ecuador</option>
+                        <option value="US">Estados Unidos</option>
+                    </select>
+                    <i></i>
+                </div>
             </div>
             <div id="cartelera" class="scroller"></div>
         </section>
@@ -107,6 +116,8 @@
         </footer>
     </main>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./src/nodes.js"></script>
     <script src="./src/app.js"></script>
+    <script src="./src/navigator.js"></script>
 </body>
 </html>

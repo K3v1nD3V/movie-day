@@ -9,6 +9,7 @@ const api = axios.create({
 });
 
 const endpoints = {
+    movie: '/movie',
     trending: '/trending/movie/day',
     popular: '/movie/popular',
     cartelera: '/movie/now_playing',
@@ -17,9 +18,7 @@ const endpoints = {
 async function getData(endpoint) {
     try{
         const {data} = await api.get(endpoint);
-        const movies = data.results
-
-        return movies
+        return data
     }catch(e){
         console.log(new Error('Get-Data: ' + e));
     }
@@ -40,9 +39,13 @@ function createMovieCard(movie) {
     const porcen_icon = document.createElement('p')
 
     scroller_card.className = 'scroller_card'
-    
+    scroller_card.setAttribute('movie_id', movie.id)
+
     movie_img.src = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${movie.poster_path}`
     movie_img.alt = movie.original_title
+    movie_img.addEventListener('click', () => {
+        location.hash = `#movie=${movie.id}`
+    });
     
     info_div.className = 'info';
 
@@ -85,15 +88,32 @@ function createMovieCard(movie) {
 
     scroller_card.appendChild(movie_img)
     scroller_card.appendChild(info_div)
-
+    
     return scroller_card
 }
 function render(movies, scroller) {
-//    console.log(movies); 
-   movies.forEach(movie => {
-        const movie_card = createMovieCard(movie);
-        scroller.appendChild(movie_card);
-   });
+    let movie_list = movies
+    if (movies.results) {
+            movie_list = movies.results
+    }
+    scroller.innerHTML = ''
+    movie_list.forEach(movie => {
+            const movie_card = createMovieCard(movie);
+            scroller.appendChild(movie_card);
+    });
+}
+async function rederHome() {
+    try {
+        const popular = await getData(`${endpoints.popular}?page=3`)
+        const cartelera = await getData(`${endpoints.cartelera}`)
+        const trending = await getData(`${endpoints.trending}`)
+            
+        render(trending, trendingScroller)
+        render(popular, popularScroller)
+        render(cartelera, carteleraScroller)
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 country_select.addEventListener('change', () => {

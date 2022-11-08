@@ -7,7 +7,9 @@
     <title>MovieDay</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://kit.fontawesome.com/c4a27b7093.js" crossorigin="anonymous"></script>    <link rel="stylesheet" href="./styles/style.css">
+    <script src="https://kit.fontawesome.com/c4a27b7093.js" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/movie.css">
 </head>
 <body>
     <header>
@@ -19,95 +21,135 @@
             </div>
         </a>
         <nav>
-            <a href="#pop">Populares</a>
+            <a href="#popular">Populares</a>
             <a href="#cartelera">Cartelera</a>
+            <a href="#trending">Tendencias</a>
         </nav>
     </header>
     <main>
-        <section class="wellcomer">
-            <!-- <div class="wellcomer_bg"></div> -->
-            <h1>¿Que veras hoy?</h1>
-            <form class="wellcomer_form" action="">
-                <input class="search" id="search" type="text" placeholder="Buscar Pelicula o serie">
-                <div class="submit-container">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input class="submit" id="submit" type="submit">
+        <!-- HOME -->
+        <div id="home" class="inactive">
+            <section class="wellcomer">
+                <!-- <div class="wellcomer_bg"></div> -->
+                <h1>¿Que veras hoy?</h1>
+                <form class="wellcomer_form" action="">
+                    <input class="search" id="search" type="text" placeholder="Buscar Pelicula o serie">
+                    <div class="submit-container">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input class="submit" id="submit" type="submit">
+                    </div>
+                </form>
+            </section>
+            
+            <section  class="scroller_container">
+                <div class="scroller_top">
+                    <h2>Tendencia</h2>
+                    <!-- aqui puede ir un filter -->
                 </div>
-            </form>
-        </section>
-        
-        <section  class="scroller_container">
-            <div class="scroller_top">
-                <h2>Tendencia</h2>
-                <!-- aqui puede ir un filter -->
-            </div>
-            <div id="trending" class="scroller">
-                <!-- <div class="scroller_card">
-                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9BXYLjXtSipBp2GfAlsri4i8hPC.jpg" alt="juego de tronos">
-                    <div class="info">
-                        <h3>Juego de Tronos</h3>
-                        <div class="row ">
-                            <img class="streamingLogo" src="https://www.themoviedb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" alt="Netflix" />
-                            <div class="like-container row">
-                                <i class="like fa-regular fa-thumbs-up"></i>
-                                <div class="row">
-                                    87
-                                    <span class="porcen">
-                                        <p>&percnt;</p>
-                                    </span>
+                <div id="trending" class="scroller">
+                    
+                </div>
+            </section>
+    
+            <section  class="scroller_container">
+                <div class="scroller_top row flex_space-between">
+                    <h2>Populares</h2>
+                    <button id="show-more">
+                        Ver más
+                    </button>
+                    <!-- aqui puede ir un filter -->
+                </div>
+                <div id="popular" class="scroller">
+                    <!-- <div class="scroller_card">
+                        <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9BXYLjXtSipBp2GfAlsri4i8hPC.jpg" alt="juego de tronos">
+                        <div class="info">
+                            <h3>Juego de Tronos</h3>
+                            <div class="row ">
+                                <img class="streamingLogo" src="https://www.themoviedb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" alt="Netflix" />
+                                <div class="like-container row">
+                                    <i class="like fa-regular fa-thumbs-up"></i>
+                                    <div class="row">
+                                        87
+                                        <span class="porcen">
+                                            <p>&percnt;</p>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div> -->
+                </div>
+            </section>
+    
+            <section class="scroller_container">
+                <div class="scroller_top row">
+                    <h2>Cartelera</h2>
+                    <div class="select_container">
+                        <select id="country_select" class="select">
+                            <option value="AR">Argentina</option>
+                            <option value="AU">Australia</option>
+                            <option value="BR">Brasil</option>
+                            <option value="CO">Colombia</option>
+                            <option value="CL">Chile</option>
+                            <option value="EC">Ecuador</option>
+                            <option value="US">Estados Unidos</option>
+                        </select>
+                        <i></i>
                     </div>
-                </div> -->
-            </div>
-        </section>
+                </div>
+                <div id="cartelera" class="scroller"></div>
+            </section>
+        </div>
 
-        <section  class="scroller_container">
-            <div class="scroller_top">
-                <h2>Populares</h2>
-                <!-- aqui puede ir un filter -->
-            </div>
-            <div id="popular" class="scroller">
-                <!-- <div class="scroller_card">
-                    <img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9BXYLjXtSipBp2GfAlsri4i8hPC.jpg" alt="juego de tronos">
-                    <div class="info">
-                        <h3>Juego de Tronos</h3>
-                        <div class="row ">
-                            <img class="streamingLogo" src="https://www.themoviedb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" alt="Netflix" />
-                            <div class="like-container row">
-                                <i class="like fa-regular fa-thumbs-up"></i>
-                                <div class="row">
-                                    87
-                                    <span class="porcen">
-                                        <p>&percnt;</p>
-                                    </span>
-                                </div>
-                            </div>
+        <!-- MOVIE_INFO -->
+        <div id="movieInfo">
+           <div class="movie">
+                <div class="movie_img">
+                    <img id="movie_img" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xiB0hsxMpgxpJehYxUDhiUkg2w.jpg" alt="juego de tronos">
+                </div>
+                <div class="movie_info column">
+                    <div class="movie_info_basic">
+                        <h1 id="movie_title">Titulo de la pelicula</h1>
+                        <div class="info_basic_resum row">
+                            <p id="date" class="like-container">2020/03/11</p>
+                            <p id="genders" class="like-container">Accion, Aventura, Ficcion</p>
+                            <p id="duration" class="like-container">1h 50m</p>
                         </div>
                     </div>
-                </div> -->
+                    <div class="movie_info_fromPage row">
+                        <div class="fromPage_img">
+                            <img id="company_logo" class="streamingLogo" src="https://www.themoviedb.org/t/p/original/t2yyOv40HZeVlLjYsCsPHnWLk4W.jpg" alt="Netflix" />
+                        </div>
+                        <div class="fromPage_porce like-container row">
+                            <i class="like fa-regular fa-thumbs-up"></i>
+                            <div id="calification" class="row">87<span class="porcen"><p>&percnt;</p></span></div>
+                        </div>
+                    </div>
+                    <div class="movie_sipnosis">
+                        <h2>Sipnosis</h2>
+                        <p id="sipnosis">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec lacinia justo.
+                            Praesent eleifend lectus dictum, sagittis nunc quis, imperdiet neque. Mauris 
+                            tincidunt rhoncus libero, nec tempus tortor bibendum a. Aliquam varius sed tellus 
+                            ac mollis. Curabitur tincidunt sem et ultrices eleifend. Aenean euismod erat leo, 
+                            et efficitur justo semper non. Duis vulputate sem ac pharetra ultrices. 
+                        </p>
+                    </div>
+                </div>
             </div>
-        </section>
+        </div>
 
         <section class="scroller_container">
-            <div class="scroller_top row">
-                <h2>Cartelera</h2>
-                <div class="select_container">
-                    <select id="country_select" class="select">
-                        <option value="AR">Argentina</option>
-                        <option value="AU">Australia</option>
-                        <option value="BR">Brasil</option>
-                        <option value="CO">Colombia</option>
-                        <option value="CL">Chile</option>
-                        <option value="EC">Ecuador</option>
-                        <option value="US">Estados Unidos</option>
-                    </select>
-                    <i></i>
-                </div>
+            <div class="scroller_top">
+                <h2>similares</h2>
+                <!-- aqui puede ir un filter -->
             </div>
-            <div id="cartelera" class="scroller"></div>
-        </section>
+
+            <div id="similares" class="scroller">
+                
+            </div>
+        </section> 
+        
 
         <footer>
             <div>

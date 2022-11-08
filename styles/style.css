@@ -55,6 +55,9 @@ h3{
     display: flex;
     flex-direction: column;
 }
+.flex_space-between{
+    justify-content: space-between;
+}
 /* header */
 header {
     display:flex;
@@ -173,6 +176,18 @@ nav a:hover{
     align-items: center;
     gap: 12px;
 }
+
+.scroller_top button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--p-c-linght);
+    transition: all 0.25s ease;
+}
+.scroller_top button:hover{
+    cursor: pointer;
+    background-color: var(--primary-color);
+}
 .scroller{
     display: flex;
     gap: 15px;
@@ -223,6 +238,9 @@ nav a:hover{
     padding: 5px 8px;
     background: #212121;
     border-radius: 30px;
+}
+.like-container p{
+    line-height: 1.5;
 }
 
 .like{
@@ -291,4 +309,10 @@ footer{
     margin-top: 20px;
     padding: 10px;
     background-color: var(--secundary-color);
+}
+
+/* inactive status */
+
+.inactive{
+    display: none;
 }

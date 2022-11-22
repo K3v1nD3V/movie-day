@@ -19,13 +19,17 @@
     box-sizing: border-box;
     color: var(--txt-color);
 }
+body{
+    font-family: var(--primary-font-family);
+    background-color:#d7d7d7;
+}
+ul{
+    list-style: none;
+}
 select{
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-}
-body{
-    font-family: var(--primary-font-family);
 }
 a{
     text-decoration: none;

@@ -13,6 +13,7 @@ const endpoints = {
     trending: '/trending/movie/day',
     popular: '/movie/popular',
     cartelera: '/movie/now_playing',
+    discover: '/discover/movie'
 }
 
 async function getData(endpoint) {
@@ -91,12 +92,14 @@ function createMovieCard(movie) {
     
     return scroller_card
 }
-function render(movies, scroller) {
+function render(movies, scroller, clear = true) {
     let movie_list = movies
     if (movies.results) {
             movie_list = movies.results
     }
-    scroller.innerHTML = ''
+    if (clear) {
+        scroller.innerHTML = ''
+    }
     movie_list.forEach(movie => {
             const movie_card = createMovieCard(movie);
             scroller.appendChild(movie_card);
@@ -104,7 +107,7 @@ function render(movies, scroller) {
 }
 async function rederHome() {
     try {
-        const popular = await getData(`${endpoints.popular}?page=3`)
+        const popular = await getData(`${endpoints.popular}?page=1`)
         const cartelera = await getData(`${endpoints.cartelera}`)
         const trending = await getData(`${endpoints.trending}`)
             
@@ -124,4 +127,7 @@ country_select.addEventListener('change', () => {
             carteleraScroller.innerHTML = ''
             render(data, carteleraScroller)
         })
+})
+show_more.addEventListener('click', (e) => {
+    location.hash = `#show=${e.composedPath()[0].name}`
 })

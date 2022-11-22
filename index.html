@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/c4a27b7093.js" crossorigin="anonymous"></script>    
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/movie.css">
+    <link rel="stylesheet" href="./styles/show.css">
 </head>
 <body>
     <header>
@@ -26,6 +27,7 @@
             <a href="#trending">Tendencias</a>
         </nav>
     </header>
+
     <main>
         <!-- HOME -->
         <div id="home" class="inactive">
@@ -54,7 +56,7 @@
             <section  class="scroller_container">
                 <div class="scroller_top row flex_space-between">
                     <h2>Populares</h2>
-                    <button id="show-more">
+                    <button id="show-more" name="popular">
                         Ver más
                     </button>
                     <!-- aqui puede ir un filter -->
@@ -137,19 +139,43 @@
                     </div>
                 </div>
             </div>
+            <section class="scroller_container">
+                <div class="scroller_top">
+                    <h2>similares</h2>
+                    <!-- aqui puede ir un filter -->
+                </div>
+
+                <div id="similares" class="scroller">
+                    
+                </div>
+            </section> 
         </div>
 
-        <section class="scroller_container">
-            <div class="scroller_top">
-                <h2>similares</h2>
-                <!-- aqui puede ir un filter -->
-            </div>
+        <!-- SHOW_MORE -->
+        <div id="showMore">
+            <div class="showMore">
+                <aside class="showMore_aside">
+                    <div class="filterContainer">
+                        <h3>Géneros </h3>
+                        <ul id="genders_container" class="genderList">
+                            
+                        </ul>
+                        <button id="addFilters_button" class="addFilters_button">
+                            Añadir filtros
+                        </button>
+                    </div>
+                </aside>
+                <section class="showMore_container-background column">
+                    <article id="showMore_container" class="showMore_container row">
 
-            <div id="similares" class="scroller">
-                
+                    </article>
+                    <button id="showMore_button" class="showMore_button">
+                        Mostrar más
+                    </button>
+                </section>
             </div>
-        </section> 
-        
+            
+        </div>
 
         <footer>
             <div>

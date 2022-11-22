@@ -1,0 +1,79 @@
+.showMore{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    width: 80%;
+    margin: 20px auto;
+    min-height: 100vh;
+}
+.showMore_aside{
+    background-color: var(--secundary-color);
+    padding: 20px;
+}
+.showMore_container-background{
+    grid-column: 2/6;
+    background-color: var(--secundary-color);    
+    padding: 0 20px 20px;
+}
+.showMore_container .scroller_card{
+    margin-top:20px;
+}
+.showMore_container{
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+.showMore_button{
+    margin: 20px auto;
+    border:none;
+	border-radius:5px;
+	padding:5px;
+	width:100%;
+	background-color:var(--p-c-linght);
+	color:var(--txt-color);
+	font-size:20px;
+	transition:background .2s ease;
+}
+.showMore_button:hover{
+    background-color: var(--primary-color);
+	cursor:pointer;
+}
+.addFilters_button{
+	margin: 20px auto;
+    border:none;
+	border-radius:5px;
+	padding:5px;
+	width:100%;
+	background-color:var(--p-c-linght);
+	color:var(--txt-color);
+	font-size:20px;
+	transition:background .5s ease;
+}
+.addFilters_button-actived{
+	background-color:var(--primary-color);
+}
+.addFilters_button-actived:hover{
+	background-color:var(--primary-color);
+	cursor: pointer;
+}
+.filter-container{
+	background-color: gray;
+	max-width:200px;
+}
+.genderList{
+	display:flex;
+	flex-wrap:wrap;
+	gap:10px;
+    margin-top: 10px;
+}
+.genre{
+	border:solid 2px #fff;
+	padding:5px 10px;
+	border-radius:30px;
+	transition:background-color .5s ease;
+}
+.genre:hover{
+	cursor:pointer;
+}
+.filterActive{
+	background-color: var(--primary-color);
+}

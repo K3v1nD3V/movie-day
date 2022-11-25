@@ -2,11 +2,13 @@
 const homeContainer = document.querySelector('#home');
 const movieInfoContainer = document.querySelector('#movieInfo');
 const showMoreContainer = document.querySelector('#showMore');
+const searchContainer = document.querySelector('#searchView');
 
 // CONTAINERS
 const movieRender = document.querySelector('.movie');
 const showMore_container = document.querySelector('#showMore_container');
 const genders_container = document.querySelector('#genders_container');
+const searchView_container = document.querySelector('#searchView_container')
 
 // SCROLLERS
 const popularScroller = document.querySelector('#popular');
@@ -16,11 +18,15 @@ const similaresScroller = document.querySelector('#similares')
 
 //inputs
 const country_select = document.querySelector('#country_select')
+const search_input = document.querySelector('#search')
+const searchView_input = document.querySelector('#searchView_input')
 
 // buttons
-const show_more = document.querySelector('#show-more')
+const show_more = document.querySelectorAll('.show-more')
 const add_filter = document.querySelector('#addFilters_button')
-
+const submit = document.querySelector('#submit')
+const searchView_submit = document.querySelector('#searchView_submit')
+const searchView_showMore_button = document.querySelector('#searchView_showMore_button')
 // MOVIE_INFO
 const movie_img = document.querySelector('#movie_img')
 const movie_title = document.querySelector('#movie_title')

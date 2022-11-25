@@ -2,6 +2,7 @@ window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('hashchange', navigator, false);
 
 function navigator() {
+    pag = 1
     if (location.hash.startsWith('#trends')) {
         trendsPage();
     } else if (location.hash.startsWith('#search=')) {
@@ -19,26 +20,34 @@ function homePage() {
     homeContainer.classList.remove('inactive')
     movieInfoContainer.classList.add('inactive')
     showMoreContainer.classList.add('inactive')
+    searchContainer.classList.add('inactive')
     
     rederHome()
+    window.scrollTo(0, 0);
 }
 
 function showMorePage(){
+    showMoreContainer.classList.remove('inactive')
     homeContainer.classList.add('inactive')
     movieInfoContainer.classList.add('inactive')
-    showMoreContainer.classList.remove('inactive')
+    searchContainer.classList.add('inactive')
     
-    let url
     let genresArray = []
     
-    location.hash.split('=')[1] == 'popular'?
+    const hash = location.hash.split('=')[1]
+    
+    if (hash == 'popular'){
         url = `${endpoints.popular}`
-        :
-        console.log('otra cosa');
+    }
+    else if(hash == 'trending'){
+        url = `${endpoints.trending}`
+    }
     
     getData(url)
         .then(data => {
+            totalPages = data.total_pages
             render(data,showMore_container)
+            showMore_button_controler(showMore_button)
         })
     
     getData('/genre/movie/list')
@@ -70,7 +79,7 @@ function showMorePage(){
         })
 
         add_filter.addEventListener('click', () =>{
-            
+            pag = 1
             if (add_filter.classList.contains('addFilters_button-actived')) {
                 add_filter.classList.remove('addFilters_button-actived')
                 
@@ -79,26 +88,16 @@ function showMorePage(){
                 getData(`${endpoints.discover}?with_genres=${genresIds}`)
                     .then(data => {
                         console.log(data);
+                        totalPages = data.total_pages
                         render(data,showMore_container)
+                        showMore_button_controler(showMore_button)
                         url = `${endpoints.discover}?with_genres=${genresIds}`
                     })
             }
-
-            console.log(genresArray.join(','));
            
         })  
-    let pag = 1
-    showMore_button.addEventListener('click', () => {
-        pag++
-        let simbol = '?'
-        if (url.split('?').length > 1) {
-            simbol = '&'
-        }
-        getData(`${url}${simbol}page=${pag}`)
-            .then((data) =>{
-                render(data,showMore_container,false)
-            })
-    })
+    
+    window.scrollTo(0, 0);
 }
 
 function movieDetailsPage(){    
@@ -107,6 +106,7 @@ function movieDetailsPage(){
     movieInfoContainer.classList.remove('inactive')
     homeContainer.classList.add('inactive');
     showMoreContainer.classList.add('inactive')
+    searchContainer.classList.add('inactive')
 
     getData(`${endpoints.movie}/${movie_id}`)
         .then(movie_info => {
@@ -135,7 +135,7 @@ function movieDetailsPage(){
             duration.textContent = time
             
             company_logo.src = 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2' + movie_info.production_companies[0].logo_path
-            calification.childNodes[0].textContent = Math.floor(movie_info.popularity)
+            calification.childNodes[0].textContent = Math.round(movie_info.vote_average * 10)
 
             sipnosis.textContent = movie_info.overview
         })
@@ -144,10 +144,19 @@ function movieDetailsPage(){
             let similar_list = similares.results
             render(similar_list, similaresScroller)
         })
+    
+    window.scrollTo(0, 0);
 }
 
 function searchPage() {
-    console.log('SEARCH');
+    searchContainer.classList.remove('inactive')
+    movieInfoContainer.classList.add('inactive')
+    homeContainer.classList.add('inactive');
+    showMoreContainer.classList.add('inactive')
+    
+    url = `${endpoints.search}?query=${location.hash.split('=')[1]}`
+
+    submitSearch() 
 }
 
 function trendsPage(){

@@ -1,0 +1,18 @@
+.searchView{
+    width: 80%;
+    margin: 20px auto;
+}
+.searchView .search_form{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.searchView_container-background{
+    background-color:var(--secundary-color);
+    padding: 0 20px;
+}
+.searchView_container{
+    flex-wrap: wrap;
+    justify-content:space-between;
+    min-height: 100vh;
+    margin: 20px 0;    
+}

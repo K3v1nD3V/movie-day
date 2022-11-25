@@ -7,13 +7,16 @@ const api = axios.create({
         'api_key': '70663b0dc46c468cef00141424d0fdc4'
     },
 });
-
+let pag = 1
+let totalPages
+let url
 const endpoints = {
     movie: '/movie',
     trending: '/trending/movie/day',
     popular: '/movie/popular',
     cartelera: '/movie/now_playing',
-    discover: '/discover/movie'
+    discover: '/discover/movie',
+    search: '/search/movie'
 }
 
 async function getData(endpoint) {
@@ -65,8 +68,8 @@ function createMovieCard(movie) {
     like_icon.classList.add('like','fa-regular', 'fa-thumbs-up')
 
     porcen_container.className = 'row';
-    
-    porcen_number.textContent = '00';
+    console.log(typeof movie.vote_average);
+    porcen_number.textContent =  Math.round(movie.vote_average * 10);
     
     porcen_icon_container.className = 'porcen';
     
@@ -101,6 +104,10 @@ function render(movies, scroller, clear = true) {
         scroller.innerHTML = ''
     }
     movie_list.forEach(movie => {
+            // console.log(movie);
+            if (!movie.poster_path) {
+                return
+            }
             const movie_card = createMovieCard(movie);
             scroller.appendChild(movie_card);
     });
@@ -118,7 +125,51 @@ async function rederHome() {
         console.log(error);
     }
 }
+function search(e, search_input) {
+    e.preventDefault();
+    location.hash = '#search=' + search_input.value
+}
+function submitSearch() {
+    const query = location.hash.split('=')[1]
 
+    getData(`${endpoints.search}?query=${query}`)
+        .then((data) => {
+            totalPages = data.total_pages
+            render(data, searchView_container)
+            showMore_button_controler(searchView_showMore_button)
+        })
+}
+function showMore(e) {
+    const container = e.composedPath()[1].firstElementChild
+    pag++
+    let simbol = '?'
+    if (url.split('?').length > 1) {
+        simbol = '&'
+    }
+    console.log(pag);
+    getData(`${url}${simbol}page=${pag}`)
+        .then((data) =>{
+            render(data,container,false)
+        })
+}
+function showMore_button_controler(showButton) {
+    console.log(`${pag} - ${totalPages} ${pag == totalPages}`);
+    if (pag == totalPages) {
+        console.log('delete');
+        showButton.classList.add('inactive')
+    }else{
+        showButton.classList.remove('inactive')
+    }
+}    
+showMore_button.addEventListener('click', (e) => {
+    showMore(e)
+    console.log('funcionando');
+    showMore_button_controler(showMore_button)
+})
+searchView_showMore_button.addEventListener('click', (e) => {
+    showMore(e)
+    showMore_button_controler(searchView_showMore_button)
+})
 country_select.addEventListener('change', () => {
     
     const codigo_ISO = country_select.options[country_select.selectedIndex].value
@@ -128,6 +179,19 @@ country_select.addEventListener('change', () => {
             render(data, carteleraScroller)
         })
 })
-show_more.addEventListener('click', (e) => {
-    location.hash = `#show=${e.composedPath()[0].name}`
+show_more.forEach(button => {
+    button.addEventListener('click', (e) => {
+        location.hash = `#show=${e.composedPath()[0].name}`
+        console.log(e.composedPath()[0].name);
+    })
+})
+
+
+submit.addEventListener('click', (e) => {
+    search(e, search_input)
+})
+searchView_submit.addEventListener('click', (e) => {
+    search(e, searchView_input)
+    submitSearch() 
+    pag = 1
 })

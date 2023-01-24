@@ -2,6 +2,7 @@
     --primary-color:#C21902;
     --p-c-linght:#e84545;
     --secundary-color:#363636;
+    --s-c-linght:#616161;
     --like-color:#139510;
     --txt-color: #ffffff;
     
@@ -169,7 +170,7 @@ nav a:hover{
 }
 
 /* scroller */
-#home .scroller_container:nth-child(3){
+#home .scroller_container:not(.scroller_container>#favorites){
     margin: 20px 0;
 }
 .scroller_container{
@@ -178,6 +179,10 @@ nav a:hover{
     gap: 15px;
     padding: 15px;
     background-color: var(--secundary-color);
+}
+.scroller_container img{
+    min-height: 300px;
+    min-width: 200px;
 }
 .scroller_top{
     align-items: center;
@@ -210,6 +215,7 @@ nav a:hover{
     border-radius: 20px;  
 }
 
+/* CARD */
 .scroller_card{
     position: relative;
     width: 200px;
@@ -225,10 +231,6 @@ nav a:hover{
 .scroller_card .info h3{
     font-size: var(--small);
     font-weight: 500;
-}
-.streamingLogo{
-    width: 50px;
-    border-radius: 50%;
 }
 .scroller_card .info img{
     position: absolute;
@@ -257,6 +259,18 @@ nav a:hover{
 .porcen{
     font-size: 11px;
     line-height: 2.3;
+}
+.favorite{
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    background: var(--p-c-linght);
+    font-size: 20px;
+    border-bottom-left-radius: 10px;
+    transition: background-color .2s ease;
+}
+.favorite:hover{
+    background-color: var(--primary-color);
 }
 
 .select_container select{
@@ -322,4 +336,10 @@ footer{
 
 .inactive{
     display: none;
+}
+.span{
+    color: var(--s-c-linght);
+    font-size: var(--small);
+    width: 100%;
+    text-align: center;
 }

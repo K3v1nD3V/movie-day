@@ -1,8 +1,9 @@
-window.addEventListener('DOMContentLoaded', navigator, false);
-window.addEventListener('hashchange', navigator, false);
+window.addEventListener('DOMContentLoaded', navi, false);
+window.addEventListener('hashchange', navi, false);
 
-function navigator() {
+function navi() {
     pag = 1
+    
     if (location.hash.startsWith('#trends')) {
         trendsPage();
     } else if (location.hash.startsWith('#search=')) {
@@ -47,9 +48,8 @@ function showMorePage(){
         .then(data => {
             totalPages = data.total_pages
             render(data,showMore_container)
-            showMore_button_controler(showMore_button)
         })
-    
+
     getData('/genre/movie/list')
         .then((data) => {
             const genres = data.genres
@@ -87,10 +87,8 @@ function showMorePage(){
                 
                 getData(`${endpoints.discover}?with_genres=${genresIds}`)
                     .then(data => {
-                        console.log(data);
                         totalPages = data.total_pages
                         render(data,showMore_container)
-                        showMore_button_controler(showMore_button)
                         url = `${endpoints.discover}?with_genres=${genresIds}`
                     })
             }
@@ -134,10 +132,10 @@ function movieDetailsPage(){
             }
             duration.textContent = time
             
-            company_logo.src = 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2' + movie_info.production_companies[0].logo_path
             calification.childNodes[0].textContent = Math.round(movie_info.vote_average * 10)
 
             sipnosis.textContent = movie_info.overview
+            movie_container.classList.remove('preload')
         })
     getData(`${endpoints.movie}/${movie_id}/similar`)
         .then(similares => {
@@ -157,6 +155,8 @@ function searchPage() {
     url = `${endpoints.search}?query=${location.hash.split('=')[1]}`
 
     submitSearch() 
+    
+    window.scrollTo(0, 0);
 }
 
 function trendsPage(){

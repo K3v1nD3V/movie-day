@@ -1,0 +1,54 @@
+.scroller_card-preload{
+    width: 200px;
+    min-width: 200px;
+}
+.img-preload{
+    background-color: var(--s-c-linght);
+    width: 200px;
+    height: 300px;
+    margin-top: 20px;
+}
+.info-preload{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 5px;
+}
+.info-preload div{
+    background-color: var(--s-c-linght);
+    height: 30px;
+}
+.info-preload div:last-child{
+    background-color: var(--s-c-linght);
+    width: 70px;
+    height: 30px;
+    border-radius: 30px;
+}
+.gen-preload{
+    height: 20px;
+    width: 50px;
+    background-color:var(--s-c-linght);
+}
+.gen-preload:nth-child(3n+1){
+    width: 100px;
+}
+
+.preload .movie_img{
+    background-color:var(--s-c-linght);
+    height: 525px;
+    width: 350px;
+}
+.preload #movie_title{
+    background-color: var(--s-c-linght);
+    height: 30px;
+    width: 400px;
+}
+.preload .info_basic_resum p{
+    background-color: var(--s-c-linght);
+    height: 20px;
+    width: 50px;
+}
+.preload #sipnosis{
+    background-color: var(--s-c-linght);
+    height: 100px;
+}

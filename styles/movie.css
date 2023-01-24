@@ -32,3 +32,7 @@
     border-bottom: solid var(--p-c-linght);
     margin-bottom: 5px;
 }
+.streamingLogo{
+    width: 20px;
+    border-radius: 50%;
+}

@@ -327,9 +327,11 @@ nav a:hover{
 footer{
     display: flex;
     justify-content: center;
-    margin-top: 20px;
     padding: 10px;
     background-color: var(--secundary-color);
+}
+footer svg{
+    height: 50px;
 }
 
 /* inactive status */

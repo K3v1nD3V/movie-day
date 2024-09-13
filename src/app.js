@@ -109,7 +109,6 @@ searchView_submit.addEventListener('click', (e) => {
 //HANDLES
 
 function createMovieCard(movie) {
-    console.log(movie);
     const likedMovies = localStoregeHelper()
     
     const scroller_card = document.createElement('div');
